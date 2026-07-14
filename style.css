@@ -1,43 +1,48 @@
 /* -------------------------------------------------------------
    NIMIT RAJ JAISWAL LANDING PAGE STYLESHEET
    Professional, playful, modern, and highly responsive.
+   "Blocky Sports Arena" theme: Roblox + Cricket hybrid.
    ------------------------------------------------------------- */
 
 /* Custom Properties / Design Tokens */
 :root {
-    --primary: #5c54f4;
-    --primary-light: #818cf8;
-    --primary-dark: #4338ca;
-    --secondary: #06b6d4;
-    --secondary-light: #67e8f9;
-    --accent: #f97316;
-    --accent-light: #ffedd5;
+    --primary: #E2231A; /* Roblox Red */
+    --primary-light: #ff5252;
+    --primary-dark: #b01010;
+    --secondary: #16a34a; /* Cricket Pitch Green */
+    --secondary-light: #4ade80;
+    --secondary-dark: #15803d;
+    --accent: #facc15; /* Golden Cup / Wickets */
+    --accent-light: #fef9c3;
     
-    --bg-light: #f8fafc;
+    --bg-light: #f1f5f9; /* Light gamer grey */
     --bg-white: #ffffff;
-    --bg-dark: #0f172a;
+    --bg-dark: #111723; /* Roblox slate dark */
     --bg-dark-accent: #1e293b;
     
     --text-main: #334155;
     --text-muted: #64748b;
-    --text-dark: #0f172a;
+    --text-dark: #111723;
     --text-white: #ffffff;
     
-    --font-heading: 'Poppins', sans-serif;
+    --font-heading: 'Luckiest Guy', 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
     
     --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
     --radius-round: 50%;
     
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 10px 15px -3px rgba(92, 84, 244, 0.1), 0 4px 6px -4px rgba(92, 84, 244, 0.05);
-    --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
-    --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.2);
+    /* Blocky Lego/Voxel Aesthetic */
+    --border-blocky: 3px solid #111723;
+    --border-blocky-sm: 2px solid #111723;
+    --shadow-blocky: 6px 6px 0px #111723;
+    --shadow-blocky-sm: 4px 4px 0px #111723;
+    --shadow-blocky-lg: 10px 10px 0px #111723;
+    --shadow-glow: 0 0 20px rgba(22, 163, 74, 0.3);
     
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* Reset & Global Base Styles */
@@ -60,10 +65,20 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
-    font-family: var(--font-heading);
+h1, h2 {
+    font-family: var(--font-heading); /* Luckiest Guy */
     color: var(--text-dark);
-    font-weight: 700;
+    font-weight: 400; /* Luckiest Guy is inherently bold and renders best at normal weight */
+    letter-spacing: 0.04em; /* Give letters healthy breathing room */
+    line-height: 1.25 !important; /* Good vertical spacing */
+}
+
+h3, h4 {
+    font-family: 'Poppins', sans-serif; /* Clean, modern sans-serif for high readability */
+    color: var(--text-dark);
+    font-weight: 800; /* Extra bold to keep the gamer energy but remain crisp */
+    letter-spacing: 0.02em;
+    line-height: 1.35 !important;
 }
 
 a {
@@ -91,59 +106,74 @@ img {
     gap: 2rem;
 }
 
-/* Buttons */
+/* Buttons (Roblox Blocky Style) */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     padding: 0.8rem 2rem;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.95rem;
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: var(--transition-bounce);
-    border: none;
+    border: var(--border-blocky);
+    position: relative;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background-color: var(--primary);
     color: var(--text-white);
-    box-shadow: 0 10px 15px -3px rgba(92, 84, 244, 0.3);
+    box-shadow: var(--shadow-blocky);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 20px -3px rgba(92, 84, 244, 0.4);
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-blocky-lg);
+    background-color: var(--primary-light);
+}
+
+.btn-primary:active {
+    transform: translate(3px, 3px);
+    box-shadow: var(--shadow-blocky-sm);
 }
 
 .btn-secondary {
-    background-color: var(--bg-white);
-    color: var(--primary-dark);
-    border: 2px solid var(--primary-light);
+    background-color: var(--accent);
+    color: var(--text-dark);
+    box-shadow: var(--shadow-blocky);
 }
 
 .btn-secondary:hover {
-    background-color: var(--primary-light);
-    color: var(--text-white);
-    transform: translateY(-3px);
+    background-color: var(--accent-light);
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-blocky-lg);
 }
 
-/* Badge Style */
+.btn-secondary:active {
+    transform: translate(3px, 3px);
+    box-shadow: var(--shadow-blocky-sm);
+}
+
+/* Badge Style (Blocky Name Plate) */
 .badge {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: var(--accent-light);
-    color: var(--accent);
-    font-family: var(--font-heading);
-    font-weight: 700;
+    background-color: var(--accent);
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
     font-size: 0.85rem;
-    border-radius: 50px;
+    border-radius: var(--radius-sm);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 10px rgba(249, 115, 22, 0.1);
+    letter-spacing: 0.04em;
+    border: var(--border-blocky-sm);
+    box-shadow: var(--shadow-blocky-sm);
 }
 
 /* Header & Navigation Bar */
@@ -176,7 +206,7 @@ img {
 }
 
 .nav-logo {
-    font-family: var(--font-heading);
+    font-family: 'Poppins', sans-serif;
     font-weight: 800;
     font-size: 1.6rem;
     color: var(--text-dark);
@@ -222,18 +252,20 @@ img {
 }
 
 .nav-btn {
-    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    background-color: var(--secondary);
     color: var(--text-white);
     padding: 0.6rem 1.4rem;
-    border-radius: 50px;
-    font-weight: 600;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
     font-size: 0.9rem;
-    box-shadow: var(--shadow-sm);
+    border: var(--border-blocky-sm);
+    box-shadow: var(--shadow-blocky-sm);
 }
 
 .nav-btn:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-glow);
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-blocky);
+    background-color: var(--secondary-light);
 }
 
 .nav-toggle {
@@ -248,8 +280,8 @@ img {
 /* Hero Section */
 .hero-section {
     padding: 9rem 0 6rem;
-    background: radial-gradient(circle at 80% 20%, rgba(92, 84, 244, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 10% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 50%);
+    background: radial-gradient(circle at 80% 20%, rgba(226, 35, 26, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 10% 80%, rgba(22, 163, 74, 0.05) 0%, transparent 50%);
     position: relative;
 }
 
@@ -278,12 +310,13 @@ img {
 }
 
 .hero-tagline {
-    font-family: var(--font-heading);
+    font-family: 'Poppins', sans-serif;
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 800;
     color: var(--text-dark);
     margin-bottom: 1.5rem;
     line-height: 1.4;
+    letter-spacing: 0.01em;
 }
 
 .hero-description {
@@ -321,8 +354,8 @@ img {
     position: relative;
     background: var(--bg-white);
     padding: 8px;
-    box-shadow: var(--shadow-lg);
-    border: 4px solid var(--bg-white);
+    border: var(--border-blocky);
+    box-shadow: var(--shadow-blocky);
 }
 
 /* Floating Badges on Hero Image */
@@ -331,16 +364,17 @@ img {
     background-color: var(--bg-white);
     color: var(--text-dark);
     padding: 0.6rem 1.2rem;
-    border-radius: 50px;
-    font-family: var(--font-heading);
-    font-weight: 700;
+    border-radius: var(--radius-sm);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    box-shadow: var(--shadow-md);
+    border: var(--border-blocky-sm);
+    box-shadow: var(--shadow-blocky-sm);
     z-index: 10;
-    border: 1px solid rgba(226, 232, 240, 0.6);
+    letter-spacing: 0.02em;
 }
 
 .badge-top {
@@ -407,16 +441,17 @@ img {
     background-color: var(--bg-light);
     padding: 2.5rem 2rem;
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(226, 232, 240, 0.8);
+    border: var(--border-blocky);
+    box-shadow: var(--shadow-blocky);
     position: relative;
     overflow: hidden;
     transition: var(--transition-bounce);
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-light);
+    transform: translate(-5px, -5px);
+    box-shadow: var(--shadow-blocky-lg);
+    border-color: var(--primary);
 }
 
 .card-icon {
@@ -429,6 +464,7 @@ img {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     color: var(--text-white);
+    border: var(--border-blocky-sm);
 }
 
 .card-icon.science {
@@ -458,14 +494,16 @@ img {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    font-family: var(--font-heading);
-    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
     font-size: 0.75rem;
     text-transform: uppercase;
-    color: var(--primary);
-    background-color: rgba(92, 84, 244, 0.08);
+    color: var(--text-dark);
+    background-color: var(--accent);
     padding: 0.25rem 0.75rem;
-    border-radius: 50px;
+    border-radius: var(--radius-sm);
+    border: var(--border-blocky-sm);
+    box-shadow: 2px 2px 0px #111723;
 }
 
 /* Hobbies Section */
@@ -482,17 +520,17 @@ img {
     background-color: var(--bg-white);
     padding: 1.5rem;
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    border: var(--border-blocky);
+    box-shadow: var(--shadow-blocky);
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
     transition: var(--transition-bounce);
-    border: 1px solid rgba(226, 232, 240, 0.4);
 }
 
 .hobby-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-blocky-lg);
 }
 
 .hobby-img-placeholder {
@@ -505,6 +543,7 @@ img {
     color: var(--text-white);
     position: relative;
     overflow: hidden;
+    border: var(--border-blocky-sm);
 }
 
 .hobby-img-placeholder::after {
@@ -523,20 +562,20 @@ img {
     left: 120%;
 }
 
-.hobby-img-placeholder.lego {
-    background: linear-gradient(135deg, #facc15, #f59e0b);
+.hobby-img-placeholder.cricket {
+    background: linear-gradient(135deg, #16a34a, #15803d);
 }
 
-.hobby-img-placeholder.gaming {
-    background: linear-gradient(135deg, #ec4899, #a855f7);
+.hobby-img-placeholder.roblox {
+    background: linear-gradient(135deg, #E2231A, #b01010);
 }
 
-.hobby-img-placeholder.sports {
-    background: linear-gradient(135deg, #10b981, #059669);
+.hobby-img-placeholder.vlogs {
+    background: linear-gradient(135deg, #facc15, #ca8a04);
 }
 
-.hobby-img-placeholder.book {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+.hobby-img-placeholder.cycling {
+    background: linear-gradient(135deg, #0284c7, #1e40af);
 }
 
 .hobby-details h3 {
@@ -562,16 +601,17 @@ img {
 
 .fact-card {
     background-color: var(--bg-light);
-    border-left: 5px solid var(--accent);
+    border: var(--border-blocky);
+    box-shadow: var(--shadow-blocky);
     padding: 2rem;
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    border-radius: var(--radius-md);
     position: relative;
     transition: var(--transition-bounce);
 }
 
 .fact-card:hover {
-    transform: scale(1.02);
-    box-shadow: var(--shadow-md);
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-blocky-lg);
 }
 
 .fact-number {
@@ -581,7 +621,7 @@ img {
     font-family: var(--font-heading);
     font-weight: 800;
     font-size: 2.2rem;
-    color: rgba(249, 115, 22, 0.15);
+    color: rgba(226, 35, 26, 0.15);
     line-height: 1;
 }
 
@@ -609,11 +649,11 @@ img {
 .contact-card {
     background-color: var(--bg-white);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    border: var(--border-blocky);
+    box-shadow: var(--shadow-blocky-lg);
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     overflow: hidden;
-    border: 1px solid rgba(226, 232, 240, 0.6);
 }
 
 .contact-text {
@@ -623,6 +663,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-right: var(--border-blocky);
 }
 
 .contact-text h2 {
@@ -652,7 +693,7 @@ img {
 
 .info-item i {
     font-size: 1.2rem;
-    color: var(--secondary-light);
+    color: var(--accent);
     width: 40px;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.05);
@@ -660,6 +701,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: var(--border-blocky-sm);
 }
 
 .contact-form-wrapper {
@@ -667,6 +709,7 @@ img {
     display: flex;
     align-items: center;
     position: relative;
+    background-color: var(--bg-white);
 }
 
 .contact-form {
@@ -679,18 +722,18 @@ img {
 
 .form-group label {
     display: block;
-    font-family: var(--font-heading);
-    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
     font-size: 0.85rem;
     color: var(--text-dark);
     margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
 }
 
 .form-group input, .form-group textarea {
     width: 100%;
     padding: 0.8rem 1rem;
-    border: 2px solid #e28743; /* warm touch */
-    border: 2px solid rgba(226, 232, 240, 1);
+    border: var(--border-blocky-sm);
     border-radius: var(--radius-sm);
     font-family: var(--font-body);
     font-size: 0.95rem;
@@ -703,7 +746,7 @@ img {
     outline: none;
     border-color: var(--primary);
     background-color: var(--bg-white);
-    box-shadow: 0 0 0 4px rgba(92, 84, 244, 0.1);
+    box-shadow: var(--shadow-blocky-sm);
 }
 
 .btn-submit {

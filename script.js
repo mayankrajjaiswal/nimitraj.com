@@ -140,32 +140,45 @@ document.addEventListener('DOMContentLoaded', () => {
             const submitBtnText = submitBtn.querySelector('span');
             const submitBtnIcon = submitBtn.querySelector('i');
 
-            // Playful launching animation on button
+            // Playful blocky/gaming animation on button
             submitBtn.style.pointerEvents = 'none';
-            submitBtnText.innerText = 'Powering Engines...';
-            submitBtnIcon.className = 'fa-solid fa-gears animate-spin';
+            submitBtnText.innerText = 'Queueing Match...';
+            submitBtnIcon.className = 'fa-solid fa-spinner animate-spin';
 
             setTimeout(() => {
-                submitBtnText.innerText = 'Clearing Atmosphere...';
-                submitBtnIcon.className = 'fa-solid fa-cloud-sun';
+                submitBtnText.innerText = 'Connecting to Lobby...';
+                submitBtnIcon.className = 'fa-solid fa-server';
                 
                 setTimeout(() => {
                     // Hide the form and show the success block
                     contactForm.classList.add('hidden');
                     formSuccess.classList.remove('hidden');
 
-                    // Personalize the success message if they mentioned pizza or Minecraft!
+                    // Personalize the success message based on Nimit's interests!
                     const successHeading = formSuccess.querySelector('h3');
                     const successParagraph = formSuccess.querySelector('p');
 
-                    if (messageInput.includes('pizza')) {
-                        successHeading.innerHTML = `🍕 Transmission Received, ${nameInput}!`;
-                        successParagraph.innerHTML = `Awesome! You mentioned pizza! I've automatically added this to my urgent radar. My dad is currently reviewing the message, and I'm looking for a slice. Speak soon!`;
-                    } else if (messageInput.includes('minecraft') || messageInput.includes('game') || messageInput.includes('play')) {
-                        successHeading.innerHTML = `🎮 Ready Player One, ${nameInput}!`;
-                        successParagraph.innerHTML = `Awesome! A fellow gamer! Your message successfully avoided the creepers and landed in my inbox. I'll get back to you once my homework/gaming shift is over!`;
+                    if (messageInput.includes('cricket') || messageInput.includes('bat') || messageInput.includes('ball') || messageInput.includes('bowling') || messageInput.includes('dhoni') || messageInput.includes('virat')) {
+                        successHeading.innerHTML = `🏏 Howzat! Caught Clean, ${nameInput}!`;
+                        successParagraph.innerHTML = `Incredible! A fellow cricketer! Your message has been caught cleanly at first slip and passed directly to my parent-moderator. I'll get back to you as soon as I finish my practice session on the nets!`;
+                    } else if (messageInput.includes('roblox') || messageInput.includes('game') || messageInput.includes('obby') || messageInput.includes('builder') || messageInput.includes('blox')) {
+                        successHeading.innerHTML = `🟥 Spawned in Lobby, ${nameInput}!`;
+                        successParagraph.innerHTML = `Awesome! A Roblox enthusiast! Your message successfully bypassed the blocky creepers, spawned in my server lobby, and is now pending admin review. See you in the server soon!`;
+                    } else if (messageInput.includes('vlog') || messageInput.includes('vlogging') || messageInput.includes('video') || messageInput.includes('youtube') || messageInput.includes('record')) {
+                        successHeading.innerHTML = `📹 Stream Live, ${nameInput}!`;
+                        successParagraph.innerHTML = `Amazing! You're into content creation too! I've hit the record button on your message and it is currently rendering in my inbox. Speak soon!`;
+                    } else if (messageInput.includes('cycle') || messageInput.includes('cycling') || messageInput.includes('bike') || messageInput.includes('bicycle')) {
+                        successHeading.innerHTML = `🚲 Speed Boost Activated, ${nameInput}!`;
+                        successParagraph.innerHTML = `Awesome! You love cycling too! Your message just pedaled in at top speed, overtaking the competition. Keep riding and stay safe!`;
+                    } else if (messageInput.includes('vedik') || messageInput.includes('brother')) {
+                        successHeading.innerHTML = `😂 Sibling Alert, ${nameInput}!`;
+                        successParagraph.innerHTML = `Haha! You mentioned my younger brother Vedik! He is probably busy being a superhero right now, but I will make sure he knows you said hello (right after I win our next bicycle race!).`;
+                    } else if (messageInput.includes('pizza')) {
+                        successHeading.innerHTML = `🍕 Sizzling Hot Transmission, ${nameInput}!`;
+                        successParagraph.innerHTML = `Woohoo! You mentioned pizza! That immediately alerts my emergency radar. My dad is reviewing your message while I dream of a cheesy slice. Speak soon!`;
                     } else {
-                        successHeading.innerHTML = `🚀 Message Transmitted, ${nameInput}!`;
+                        successHeading.innerHTML = `🚀 Spawned Successfully, ${nameInput}!`;
+                        successParagraph.innerHTML = `Awesome! Your message successfully spawned in my inbox. My dad is currently reviewing the logs, and I'll get back to you as soon as my gaming shift or cricket practice is over!`;
                     }
                 }, 1200);
             }, 1200);
